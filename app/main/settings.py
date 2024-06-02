@@ -18,9 +18,16 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.staticfiles", # need for Swagger UI
     "main",
-    "google_drive_api"
+    # app for test task
+    "google_drive_api",
+    # Swagger
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
 ]
+
+STATIC_URL = "static/" # need for django.contrib.staticfiles
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -39,11 +46,19 @@ WSGI_APPLICATION = "main.wsgi.application"
 DATABASES = {}
 # https://stackoverflow.com/a/27086121
 REST_FRAMEWORK = {
+    # don't that in project
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
     # https://www.django-rest-framework.org/api-guide/parsers/#setting-the-parsers
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
+        ],
+     # swagger drf-spectacular
+    'DEFAULT_SCHEMA_CLASS': 
+        'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_RENDERERS': [
+        'drf_spectacular.renderers.SpectacularRenderer',
+        'rest_framework.renderers.JSONRenderer',
     ]
 }
 
@@ -83,3 +98,34 @@ LOGGING = {
 }
 
 logger = logging.getLogger(__name__)
+
+# need for Swagger UI
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Nova Test Case API',
+    'DESCRIPTION': 'Test case for Nova! 🤍',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+    # https://stackoverflow.com/a/67522312/24040439
+    # https://drf-spectacular.readthedocs.io/en/latest/faq.html#filefield-imagefield-is-not-handled-properly-in-the-schema
+    "COMPONENT_SPLIT_REQUEST": True
+}
+

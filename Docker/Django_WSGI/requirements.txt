@@ -1,9 +1,22 @@
+# Djanto core
 Django == 5.0.6
-requests==2.27.1
 djangorestframework==3.14
-python-dotenv==1.0.0
-pytest==8.1.1
 pytest-django==4.8.0
-google-api-python-client
+requests==2.27.1
+
+# for working with ENV
+python-dotenv==1.0.0
+
+# for tests
+pytest==8.1.1
+
+# Google Drive API lib
+google-api-python-client==2.131.0
+
+# asyncio libs
 aiohttp==3.9.5
-aiofiles
+aiofiles==23.2.1
+
+# OPENAPI
+drf-spectacular==0.27.2
+drf-spectacular-sidecar
