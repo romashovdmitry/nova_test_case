@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    nova_django_wsgi:
+        container_name: nova_django_wsgi
+        env_file:
+            - .env
+        image: ${DOCKER_USERNAME}/nova-image-django-wsgi
+        ports: 
+            - "8069:8069"
+        volumes:
+            - ./app:/app
+        networks:
+            - nova-app-network
+
+    nova_nginx:
+        container_name: nova_nginx
+        image: ${DOCKER_USERNAME}/nova-image-nginx
+        ports:
+          - "9000:9000"
+        depends_on:
+            - nova_django_wsgi
+        volumes:
+            - .:/app
+        networks:
+          - nova-app-network
+
+networks:
+  nova-app-network:

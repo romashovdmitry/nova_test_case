@@ -25,7 +25,7 @@ jobs:
         context: .
         file: ./Docker/Django_WSGI/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/image-django-wsgi
+        tags: ${{ secrets.DOCKER_USERNAME }}/nova-image-django-wsgi
       
     - name: Build and push Nginx Docker image
       uses: docker/build-push-action@v5
@@ -33,7 +33,7 @@ jobs:
         context: .
         file: ./Docker/Nginx/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/image-pycab-nginx
+        tags: ${{ secrets.DOCKER_USERNAME }}/nova-image-nginx
 
     - name: Copy Docker Compose yml file and Dockerfiles
       uses: appleboy/scp-action@v0.1.4
@@ -42,7 +42,7 @@ jobs:
         username: root
         password: ${{ secrets.HOST_PASSWORD }}
         port: 22
-        source: "docker-compose.yml,Docker"
+        source: "production.yml,Docker"
         target: /home/nova_test_case
 
     - name: Download Docker-yml file and run containers
@@ -54,6 +54,6 @@ jobs:
         port: 22
         script: |
           cd /home/nova_test_case
-          docker compose -f docker-compose.yml pull
-          docker compose --env-file=.env -f docker-compose.yml up --build -d
+          docker compose -f production.yml pull
+          docker compose --env-file=.env -f production.yml up --build -d
           docker image prune --force
