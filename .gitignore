@@ -2,7 +2,7 @@
 .env
 
 # dorectory with log files
-/logs/
+*.log
 
 # access-keys storing in json files
 credentials.json
