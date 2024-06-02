@@ -4,6 +4,9 @@
 # dorectory with log files
 *.log
 
+# tests
+.pytest_cache
+
 # access-keys storing in json files
 credentials.json
 credentials_old.json

@@ -1,10 +1,13 @@
-"""settings.py without all settings that we don't need for project """
+""" settings.py without all settings that we don't need for project """
+
+# Python improts
+from os import getenv
 from pathlib import Path
 import logging
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-oethdq$g_6u2nd+riobmu_a0dl&)+1(+iiy=q1&_u8ca%6r)xs"
+SECRET_KEY = getenv("SECRET_KEY")
 
 DEBUG = True
 
@@ -15,7 +18,8 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "main"
+    "main",
+    "google_drive_api"
 ]
 
 MIDDLEWARE = [
@@ -37,6 +41,10 @@ DATABASES = {}
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
+    # https://www.django-rest-framework.org/api-guide/parsers/#setting-the-parsers
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
 }
 
 

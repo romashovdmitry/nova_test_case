@@ -1,9 +1,6 @@
 # Django imports
-from django.urls import path
-
-# imprort views
-from main.views import create_google_doc
+from django.urls import path, include
 
 urlpatterns = [
-    path('api/v1/google_drive/create_google_doc/', create_google_doc, name="create_google_doc"),
+    path("api/v1/google_drive_api/", include("google_drive_api.urls"))
 ]
