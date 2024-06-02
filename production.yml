@@ -8,8 +8,6 @@ services:
         image: ${DOCKER_USERNAME}/nova-image-django-wsgi
         ports: 
             - "8069:8069"
-        volumes:
-            - ./app:/app
         networks:
             - nova-app-network
 
