@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+    nova_django_wsgi:
+        container_name: nova_django_wsgi
+        env_file:
+            - .env
+        build:
+            context: .
+            dockerfile: ./Docker/Django_WSGI/Dockerfile
+        ports: 
+            - "8000:8000"
+        volumes:
+            - ./app:/app
+        networks:
+            - nova-app-network
+
+    nova_nginx:
+        container_name: nova_nginx
+        build:
+            context: .
+            dockerfile: ./Docker/Nginx/Dockerfile
+        ports:
+          - "8080:80"
+        depends_on:
+            - nova_django_wsgi
+        volumes:
+            - .:/app
+        networks:
+          - nova-app-network
+
+networks:
+  nova-app-network:

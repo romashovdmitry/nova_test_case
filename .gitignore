@@ -1,0 +1,13 @@
+# config data
+.env
+
+# dorectory with log files
+/logs/
+
+# access-keys storing in json files
+credentials.json
+credentials_old.json
+
+# notes of developer Dmitry for usage on local
+typical_commands.txt
+plan.txt
