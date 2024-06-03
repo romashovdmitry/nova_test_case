@@ -26,6 +26,14 @@ open thoss files, pass your comfortable values to variables and change name to
 ```
 docker compose up --build
 ```
+# Stack
+
+- DRF
+- CI/CD: docker-compose, DockerHub
+- asyncio libs
+- PyTest: couple simple tests
+- Google API libs for work with Google API
+- Swagger UI
 
 # Swagger UI
 
