@@ -26,14 +26,6 @@ open thoss files, pass your comfortable values to variables and change name to
 ```
 docker compose up --build
 ```
-# Stack
-
-- DRF
-- CI/CD: docker-compose, DockerHub
-- asyncio libs
-- PyTest: couple simple tests
-- Google API libs for work with Google API
-- Swagger UI
 
 # Swagger UI
 
@@ -52,3 +44,7 @@ JSON:
 - validation of not text files formats: now you can save file with text, but e.g. png, mp3, etc formats
 - more tests
 - SLL
+
+# NOTE:
+
+### There is a size limit for uploading files on server equal to 5.12 MB. 
