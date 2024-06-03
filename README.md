@@ -36,7 +36,7 @@ POST: http://81.31.244.30:9000/api/v1/google_drive_api/create_google_doc/
 
 JSON: 
 ```
-{"name": "string: required, "data": "string"}
+{"name": "string", "data": "string"}
 ```
 
 # TODO:
