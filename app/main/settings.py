@@ -8,14 +8,17 @@ import logging
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = getenv("SECRET_KEY")
+IS_PROD = int(getenv("IS_PROD"))
 
-DEBUG = True
+# if project running on production server
+if IS_PROD:
+    ALLOWED_HOSTS = [str(getenv("HOST"))]
+    DEBUG = False
 
-ALLOWED_HOSTS = [
-    str(
-        getenv("HOST")
-    )
-]
+# if it's running on local machine
+else:
+    ALLOWED_HOSTS = ['*']
+    DEBUG = True
 
 INSTALLED_APPS = [
     "django.contrib.auth",
@@ -120,6 +123,7 @@ TEMPLATES = [
     },
 ]
 
+# Swagger setup
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Nova Test Case API',
     'DESCRIPTION': 'Test case for Nova! 🤍',

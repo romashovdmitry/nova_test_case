@@ -10,8 +10,8 @@ services:
             dockerfile: ./Docker/Django_WSGI/Dockerfile
         ports: 
             - "8069:8069"
-        volumes:
-            - ./app:/app
+#        volumes:
+#            - ./app:/app
         networks:
             - nova-app-network
 

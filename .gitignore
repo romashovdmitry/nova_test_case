@@ -1,3 +1,6 @@
+# python files
+*.pyc
+
 # config data
 .env
 
@@ -14,3 +17,4 @@ credentials_old.json
 # notes of developer Dmitry for usage on local
 typical_commands.txt
 plan.txt
+correct_old_path_credentials.json
