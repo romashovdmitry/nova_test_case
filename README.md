@@ -43,7 +43,7 @@ JSON:
 
 - validation of not text files formats: now you can save file with text, but e.g. png, mp3, etc formats
 - more tests
-- SLL
+- SSL server
 
 # NOTE:
 
