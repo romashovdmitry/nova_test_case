@@ -11,15 +11,15 @@ git init
 git clone https://github.com/romashovdmitry/nova_test_case
 ```
 
-2. There is a files:
+2. There is a file:
 
 - example.env.
-- credentiall_example.json
 
-open those files, pass your comfortable values to variables and change name to 
+open this file, pass your comfortable values to variables and change name to 
 
 - .env
-- credentials.json
+
+```credentials.json``` will be autocreated.
 
 5. Run docker-compose 
 
