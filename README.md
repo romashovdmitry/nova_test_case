@@ -16,7 +16,7 @@ git clone https://github.com/romashovdmitry/nova_test_case
 - example.env.
 - credentiall_example.json
 
-open thoss files, pass your comfortable values to variables and change name to 
+open those files, pass your comfortable values to variables and change name to 
 
 - .env
 - credentials.json
