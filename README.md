@@ -26,3 +26,21 @@ open thoss files, pass your comfortable values to variables and change name to
 ```
 docker compose up --build
 ```
+
+# Swagger UI
+
+Link to [Swagger UI](http://81.31.244.30:9000/api/docs/)
+
+# API:
+POST: http://81.31.244.30:9000/api/v1/google_drive_api/create_google_doc/
+
+JSON: 
+```
+{"name": "string: required, "data": "string"}
+```
+
+# TODO:
+
+- validation of not text files formats: now you can save file with text, but e.g. png, mp3, etc formats
+- more tests
+- SLL
