@@ -13,6 +13,7 @@
 # access-keys storing in json files
 credentials.json
 credentials_old.json
+credentiall_example.json
 
 # notes of developer Dmitry for usage on local
 typical_commands.txt

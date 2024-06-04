@@ -12,7 +12,10 @@ IS_PROD = int(getenv("IS_PROD"))
 
 # if project running on production server
 if IS_PROD:
-    ALLOWED_HOSTS = [str(getenv("HOST"))]
+    ALLOWED_HOSTS = [
+        "localhost:8069",
+        str(getenv("HOST"))
+    ]
     DEBUG = False
 
 # if it's running on local machine
