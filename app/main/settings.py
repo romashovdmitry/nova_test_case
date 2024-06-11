@@ -1,7 +1,7 @@
 """ settings.py without all settings that we don't need for project """
 
 # Python improts
-from os import getenv
+from os import getenv, path
 from pathlib import Path
 import logging
 
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "main.urls"
 
@@ -111,7 +112,6 @@ LOGGING = {
 
 logger = logging.getLogger(__name__)
 
-# need for Swagger UI
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -128,7 +128,6 @@ TEMPLATES = [
     },
 ]
 
-# Swagger setup
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Nova Test Case API',
     'DESCRIPTION': 'Test case for Nova! 🤍',
@@ -141,3 +140,7 @@ SPECTACULAR_SETTINGS = {
     # https://drf-spectacular.readthedocs.io/en/latest/faq.html#filefield-imagefield-is-not-handled-properly-in-the-schema
     "COMPONENT_SPLIT_REQUEST": True
 }
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
