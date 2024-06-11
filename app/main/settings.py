@@ -140,7 +140,3 @@ SPECTACULAR_SETTINGS = {
     # https://drf-spectacular.readthedocs.io/en/latest/faq.html#filefield-imagefield-is-not-handled-properly-in-the-schema
     "COMPONENT_SPLIT_REQUEST": True
 }
-
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
