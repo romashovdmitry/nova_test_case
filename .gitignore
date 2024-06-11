@@ -19,3 +19,6 @@ credentiall_example.json
 typical_commands.txt
 plan.txt
 correct_old_path_credentials.json
+
+# static file for Swagger UI
+static/*

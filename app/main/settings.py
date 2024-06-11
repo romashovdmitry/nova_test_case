@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles", # need for Swagger UI
+    "rest_framework",
     "main",
     # app for test task
     "google_drive_api",
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     "drf_spectacular_sidecar",
 ]
 
-STATIC_URL = "static/" # need for django.contrib.staticfiles
+STATIC_URL = "static/"
+STATIC_ROOT = "static"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -139,4 +141,3 @@ SPECTACULAR_SETTINGS = {
     # https://drf-spectacular.readthedocs.io/en/latest/faq.html#filefield-imagefield-is-not-handled-properly-in-the-schema
     "COMPONENT_SPLIT_REQUEST": True
 }
-

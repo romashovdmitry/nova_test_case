@@ -6,6 +6,8 @@ services:
         env_file:
             - .env
         image: ${DOCKER_USERNAME}/nova-image-django-wsgi
+        volumes:
+            - ./static:/app/static
         ports: 
             - "8069:8069"
         networks:
@@ -15,11 +17,13 @@ services:
         container_name: nova_nginx
         image: ${DOCKER_USERNAME}/nova-image-nginx
         ports:
-          - "9000:9000"
+            - "9000:9000"
         depends_on:
             - nova_django_wsgi
+        volumes:
+            - ./static:/static
         networks:
-          - nova-app-network
+            - nova-app-network
 
 networks:
   nova-app-network:

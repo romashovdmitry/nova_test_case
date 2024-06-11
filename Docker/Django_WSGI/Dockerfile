@@ -9,10 +9,11 @@ WORKDIR /app
 COPY ./Docker/Django_WSGI/requirements.txt /app
 COPY ./Docker/Django_WSGI/entrypoint.sh /app
 COPY ./app /app
+COPY ./static /app/static
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-HEALTHCHECK CMD curl -sS http://localhost:8069 || exit 1
+HEALTHCHECK CMD curl -sS http://localhost:8069/api/docs/ || exit 1
 
 RUN chmod +x /app/entrypoint.sh
 # for Windows users, just in case, auto-changing

@@ -10,8 +10,8 @@ services:
             dockerfile: ./Docker/Django_WSGI/Dockerfile
         ports: 
             - "8069:8069"
-#        volumes:
-#            - ./app:/app
+        volumes:
+            - ./static:/app/static
         networks:
             - nova-app-network
 
@@ -21,13 +21,13 @@ services:
             context: .
             dockerfile: ./Docker/Nginx/Dockerfile
         ports:
-          - "9000:9000"
+            - "9000:9000"
+        volumes:
+            - ./static:/static
         depends_on:
             - nova_django_wsgi
-        volumes:
-            - .:/app
         networks:
-          - nova-app-network
+            - nova-app-network
 
 networks:
   nova-app-network:
